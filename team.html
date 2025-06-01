@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Velox Turtur F1 Team - Team</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: #0d0d0d;
+            color: #f1f1f1;
+            text-align: center;
+        }
+
+        header {
+            background-color: #2ecc71;
+            padding: 30px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #0d0d0d;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #f1c40f;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #f1c40f;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #2980b9;
+        }
+
+        section {
+            padding: 40px 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            width: 220px;
+            border-radius: 15px;
+            padding: 15px;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+        }
+
+        .card h3 {
+            margin-top: 10px;
+            color: #f1c40f;
+        }
+
+        .card .role {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: auto;
+        }
+
+        /* Role Colors */
+        .driver { background-color: #2ecc71; }
+        .engineer { background-color: #3498db; }
+        .strategist { background-color: #9b59b6; }
+        .mechanic { background-color: #e67e22; }
+        .designer { background-color: #1abc9c; }
+        .accountant { background-color: #1abc9c; }
+
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Velox Turtur F1 Team</h1>
+    <p>The Speed of Precision</p>
+</header>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background-color: #1a1a1a;">
+  <h2 id="welcomeMessage" style="color: #f1c40f;">Welcome, User!</h2>
+  <button onclick="signOut()" style="padding: 10px 20px; font-size: 16px; font-weight: bold; background-color: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Sign Out
+  </button>
+</div>
+
+<nav>
+    <a href="main.html">Home</a>
+    <a href="team.html">Team</a>
+    <a href="car.html">Cars</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="membership.html">Membership</a>
+    <a href="drivers.html">Drivers</a>
+    <a href="merchandise.html">Merchandise</a>
+    <a href="team_videos.html">Team Videos</a>
+</nav>
+
+<section>
+    <h2 style="color:#2ecc71;">Meet the Team</h2>
+    <div class="card-container">
+        <!-- 20 Team Member Cards -->
+        <!-- Drivers -->
+        <div class="card driver"><h3>Gabriel</h3><p class="role">Team Manager</p><img src="gabriel_image.jpg"></div>
+        <div class="card driver"><h3>George</h3><p class="role">Assistant Team Manager</p><img src="george_image.jpg"></div>
+        <div class="card driver"><h3>Jasper</h3><p class="role">Assistant Team Manager</p><img src="jasper_image.jpg"></div>
+
+        <!-- Engineers -->
+        <div class="card engineer"><h3>Max</h3><p class="role">Head of Graphic Designer</p><img src="max_image.jpg"></div>
+        <div class="card engineer"><h3>Greta</h3><p class="role">Graphic Designer</p><img src="greta_image.jpg"></div>
+        <div class="card engineer"><h3>Emily</h3><p class="role">Graphic Designer</p><img src="emily_image.jpg"></div>
+        <div class="card engineer"><h3>Neerosha</h3><p class="role">Graphic Designer</p><img src="neerosha_image.jpg"></div>
+
+        <!-- Strategists -->
+        <div class="card strategist"><h3>Pip</h3><p class="role">Head of Manufacturing Engineer</p><img src="pip_image.jpg"></div>
+        <div class="card strategist"><h3>Daniel</h3><p class="role">Manufacturing Engineer</p><img src="daniel_image.jpg"></div>
+        <div class="card strategist"><h3>Leshan</h3><p class="role">Manufacturing Engineer</p><img src="leshan_image.jpg"></div>
+        <div class="card strategist"><h3>Jayden</h3><p class="role">Manufacturing Engineer</p><img src="jayden_image.jpg"></div>
+        <div class="card strategist"><h3>Mete</h3><p class="role">Manufacturing Engineer</p><img src="mete_image.jpg"></div>
+
+        <!-- Mechanics -->
+        <div class="card mechanic"><h3>Rohan</h3><p class="role">Head of Marketing and Promotions</p><img src="https://via.placeholder.com/220x180?text=Joe+Torque"></div>
+        <div class="card mechanic"><h3>Quentin</h3><p class="role">Marketing and Promotions</p><img src="quentin_image.jpg"></div>
+        <div class="card mechanic"><h3>James</h3><p class="role">Marketing and Promotions</p><img src="https://via.placeholder.com/220x180?text=Nick+Gear"></div>
+        <div class="card mechanic"><h3>Wells</h3><p class="role">Head of Accountant</p><img src="wells_image.jpg"></div>
+        
+        <!-- Designers -->
+        <div class="card designer"><h3>Niko</h3><p class="role">Head of Design Engineer</p><img src="https://via.placeholder.com/220x180?text=Finn+Aero"></div>
+        <div class="card designer"><h3>Ally</h3><p class="role">Design Engineer</p><img src="ally_image.jpg"></div>
+        <div class="card designer"><h3>Ella</h3><p class="role">Design Engineer</p><img src="ella_image.jpg"></div>
+        <div class="card designer"><h3>Shashank</h3><p class="role">Design Engineer</p><img src="shashank_image.jpg"></div>
+       
+      
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Velox Turtur F1 Team. All rights reserved.
+</footer>
+<script>
+  // Get stored username from localStorage (set by login or register)
+  const currentUser = localStorage.getItem('username') || 'User';
+
+  // Update the welcome message
+  document.getElementById('welcomeMessage').textContent = `Welcome, ${currentUser}`;
+
+  // Sign out and return to login page
+  function signOut() {
+    localStorage.removeItem('username');
+    window.location.href = 'login.html';
+  }
+</script>
+
+</body>
+</html>

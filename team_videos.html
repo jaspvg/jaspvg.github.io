@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Velox Turtur F1 Team</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: #0d0d0d;
+            color: #f1f1f1;
+            text-align: center;
+        }
+
+        header {
+            background-color: #2ecc71; /* green */
+            padding: 30px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #0d0d0d;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #f1c40f; /* gold */
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #f1c40f; /* gold */
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #2980b9; /* blue */
+        }
+
+        section {
+            padding: 40px 20px;
+        }
+
+        .about {
+            font-size: 1.25em;
+            margin: auto;
+        }
+
+        .about h2 {
+            color: #2980b9;
+        }
+
+        .button {
+            background-color: #f1c40f;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            color: #0d0d0d;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #d4ac0d;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .gallery img {
+            width: 600px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+<!-- Countdown Timer -->
+<div id="countdown-container">
+  <h2>Next Race Countdown</h2>
+  <div id="countdown">Loading...</div>
+</div>
+
+<style>
+  #countdown-container {
+    background-color: #1a1a1a;
+    color: #f1c40f;
+    padding: 30px 10px;
+    text-align: center;
+  }
+
+  #countdown {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+</style>
+
+<script>
+  // Set the date of the next race
+  const raceDate = new Date("June 30, 2025 9:45:00").getTime();
+
+  const countdownElement = document.getElementById("countdown");
+
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = raceDate - now;
+
+    if (distance < 0) {
+      clearInterval(interval);
+      countdownElement.innerHTML = "The race has started!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+</script>
+
+<header>
+    <h1>Velox Turtur F1 Team</h1>
+    <p>The Speed of Precision</p>
+</header>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background-color: #1a1a1a;">
+  <h2 id="welcomeMessage" style="color: #f1c40f;">Welcome, User!</h2>
+  <button onclick="signOut()" style="padding: 10px 20px; font-size: 16px; font-weight: bold; background-color: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Sign Out
+  </button>
+</div>
+
+
+<nav>
+    <a href="main.html">Home</a>
+    <a href="team.html">Team</a>
+    <a href="car.html">Cars</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="membership.html">Membership</a>
+    <a href="drivers.html">Drivers</a>
+    <a href="merchandise.html">Merchandise</a>
+    <a href="team_videos.html">Team Videos</a>
+</nav>
+
+<section>
+    <div class="about">
+        <h2>Team Videos</h2>
+        <p>
+            Dive into the world of Velox Turtur with exclusive footage.
+            Experience race-day drama and pit lane intensity.
+            Watch driver interviews and behind-the-scenes content.
+            Stay connected with every high-speed moment.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2 style="color:#2ecc71;">Photo Gallery</h2>
+    <div class="gallery">
+        <img src="logo_image.jpg" alt="Velox Turtur Logo">
+        <img src="logo_image.jpg" alt="Team">
+        <img src="logo_image.jpg" alt="Our Car">
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Velox Turtur F1 Team. All rights reserved.
+</footer>
+<script>
+  // Get stored username from localStorage (set by login or register)
+  const currentUser = localStorage.getItem('username') || 'User';
+
+  // Update the welcome message
+  document.getElementById('welcomeMessage').textContent = `Welcome, ${currentUser}`;
+
+  // Sign out and return to login page
+  function signOut() {
+    localStorage.removeItem('username');
+    window.location.href = 'login.html';
+  }
+</script>
+
+</body>
+</html>

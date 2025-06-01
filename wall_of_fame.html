@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wall of Fame - Velox Turtur</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f1c40f;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      color: #2ecc71;
+      font-size: 3em;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 400px;
+      margin: 20px auto;
+      font-size: 1.2em;
+    }
+
+    li {
+      background-color: #1a1a1a;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Wall of Fame 🎉</h1>
+  <p>These legends have officially joined the Velox Turtur team:</p>
+  <ul id="fameList"></ul>
+<!-- Add inside <body>, below the <ul id="fameList"> -->
+<button onclick="goHome()" style="
+  margin-top: 40px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #f1c40f;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+">
+  ⬅ Back to Homepage
+</button>
+
+<script>
+  // Launch confetti
+  confetti({
+    particleCount: 200,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+
+  // Display Wall of Fame names
+  const fame = JSON.parse(localStorage.getItem("wallOfFame") || "[]");
+  const fameList = document.getElementById("fameList");
+  fame.forEach(name => {
+    const li = document.createElement("li");
+    li.textContent = name;
+    fameList.appendChild(li);
+  });
+
+  // Go to homepage
+  function goHome() {
+    window.location.href = "main.html"; // Change to your homepage filename if different
+  }
+</script>
+</body>
+</html>

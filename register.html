@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register - Velox Turtur</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f1c40f;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 60px 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #2ecc71;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1abc9c;
+    }
+
+    .link {
+      color: #f1c40f;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    #status {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .error {
+      color: red;
+      animation: flash 1s infinite;
+    }
+
+    @keyframes flash {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Velox Turtur</h1>
+    <h2>Register</h2>
+    <input type="text" id="username" placeholder="Choose Username" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="register()">Register</button>
+    <p class="link" onclick="window.location.href='login.html'">Back to login</p>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    function register() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      const statusElement = document.getElementById("status");
+
+      statusElement.className = "";
+      statusElement.textContent = "Verifying account...";
+
+      setTimeout(() => {
+        if (password === "Velox Turtur") {
+          // Save username to approved users list
+          const existingUsers = JSON.parse(localStorage.getItem("approvedUsers")) || [];
+          if (!existingUsers.includes(username)) {
+            existingUsers.push(username);
+            localStorage.setItem("approvedUsers", JSON.stringify(existingUsers));
+          }
+
+          statusElement.textContent = "Redirecting...";
+          localStorage.setItem("username", username);
+          setTimeout(() => {
+            window.location.href = "main.html";
+          }, 1000);
+        } else {
+          statusElement.className = "error";
+          statusElement.textContent = "ACCESS DENIED: You are not part of our team.";
+        }
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
