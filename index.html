@@ -1,212 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Velox Turtur F1 Team</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            background: #0d0d0d;
-            color: #f1f1f1;
-            text-align: center;
-        }
-
-        header {
-            background-color: #2ecc71; /* green */
-            padding: 30px 0;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            color: #0d0d0d;
-        }
-
-        header p {
-            font-size: 1.2em;
-            color: #f1c40f; /* gold */
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        nav {
-            background-color: #1a1a1a;
-            padding: 10px;
-        }
-
-        nav a {
-            color: #f1c40f; /* gold */
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #2980b9; /* blue */
-        }
-
-        section {
-            padding: 40px 20px;
-        }
-
-        .about {
-            font-size: 1.25em;
-            margin: auto;
-        }
-
-        .about h2 {
-            color: #2980b9;
-        }
-
-        .button {
-            background-color: #f1c40f;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            color: #0d0d0d;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .button:hover {
-            background-color: #d4ac0d;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 0;
-            gap: 30px;
-            width: 100%;
-        }
-
-        .gallery img {
-            width: 600px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            padding: 20px;
-            font-size: 14px;
-            color: #bdc3c7;
-        }
-    </style>
-</head>
-<body>
-<!-- Countdown Timer -->
-<div id="countdown-container">
-  <h2>Next Race Countdown</h2>
-  <div id="countdown">Loading...</div>
-</div>
-
-<style>
-  #countdown-container {
-    background-color: #1a1a1a;
-    color: #f1c40f;
-    padding: 30px 10px;
-    text-align: center;
-  }
-
-  #countdown {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-</style>
-
-<script>
-  // Set the date of the next race
-  const raceDate = new Date("June 30, 2025 9:45:00").getTime();
-
-  const countdownElement = document.getElementById("countdown");
-
-  const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = raceDate - now;
-
-    if (distance < 0) {
-      clearInterval(interval);
-      countdownElement.innerHTML = "The race has started!";
-      return;
+  <meta charset="UTF-8" />
+  <title>Login - Velox Turtur</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f1c40f;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    .container {
+      padding: 60px 20px;
+      max-width: 400px;
+      margin: auto;
+    }
 
-    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }, 1000);
-</script>
+    h1 {
+      font-size: 3em;
+      color: #2ecc71;
+    }
 
-<header>
-    <h1>Velox Turtur F1 Team</h1>
-    <p>The Speed of Precision</p>
-</header>
-<div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background-color: #1a1a1a;">
-  <h2 id="welcomeMessage" style="color: #f1c40f;">Welcome, User!</h2>
-  <button onclick="signOut()" style="padding: 10px 20px; font-size: 16px; font-weight: bold; background-color: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Sign Out
-  </button>
-</div>
+    input, button {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1abc9c;
+    }
+
+    .link {
+      color: #f1c40f;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .message {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Velox Turtur</h1>
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter Username" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="login()">Login</button>
+    <p class="link" onclick="window.location.href='register.html'">Register</p>
+    <p id="message" class="message"></p>
+  </div>
+
+  <script>
+    const staticApprovedUsers = {
+  "daniel": "Daniel", "ella": "Ella", "jasper": "Jasper", "george": "George",
+  "greta": "Greta", "ally": "Ally", "gabriel": "Gabriel", "james": "James",
+  "jayden": "Jayden", "emily": "Emily", "leshan": "Leshan", "mete": "Mete",
+  "neerosha": "Neerosha", "niko": "Niko", "pip": "Pip", "quentin": "Quentin",
+  "rohan": "Rohan", "max": "Max", "shashank": "Shashank", "wells": "Wells"
+};
+
+// Add dynamically registered users (if any)
+const localUserList = JSON.parse(localStorage.getItem("approvedUsers")) || [];
+localUserList.forEach(name => {
+  staticApprovedUsers[name.toLowerCase()] = name;
+});
+
+const approvedUsers = staticApprovedUsers;
 
 
-<nav>
-    <a href="main.html">Home</a>
-    <a href="team.html">Team</a>
-    <a href="car.html">Cars</a>
-    <a href="sponsors.html">Sponsors</a>
-    <a href="membership.html">Membership</a>
-    <a href="drivers.html">Drivers</a>
-    <a href="merchandise.html">Merchandise</a>
-    <a href="team_videos.html">Team Videos</a>
-</nav>
+    function login() {
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
+      const message = document.getElementById("message");
 
-<section>
-    <div class="about">
-        <h2>HomePage</h2>
-        <p>
-            Velox Turtur is more than a racing team — we are a force of engineering brilliance, lightning speed, and unshakable focus.
-            Competing in the Formula One World Championship, our mission is to push boundaries and cross finish lines ahead of the pack.
-        </p>
-        <p>
-            Founded by engineers and racers, Velox Turtur blends performance with innovation — every lap is a step closer to greatness.
-        </p>
-    </div>
-</section>
+      const usernameRaw = usernameInput.value.trim();
+      const usernameLower = usernameRaw.toLowerCase();
+      const password = passwordInput.value;
 
-<section>
-    <h2 style="color:#2ecc71;">Photo Gallery</h2>
-    <div class="gallery">
-        <img src="logo_image.jpg" alt="Velox Turtur Logo">
-        <img src="mascot_image.jpg" alt="Team">
-        <img src="logo_image.jpg" alt="Our Car">
-    </div>
-</section>
+      message.className = "message";
+      message.textContent = "";
 
-<footer>
-    &copy; 2025 Velox Turtur F1 Team. All rights reserved.
-</footer>
-<script>
-  // Get stored username from localStorage (set by login or register)
-  const currentUser = localStorage.getItem('username') || 'User';
+      if (approvedUsers[usernameLower] && password === "Velox Turtur") {
+        const properCasedName = approvedUsers[usernameLower];
 
-  // Update the welcome message
-  document.getElementById('welcomeMessage').textContent = `Welcome, ${currentUser}`;
+        message.textContent = "Verifying account...";
+        message.classList.add("success");
 
-  // Sign out and return to login page
-  function signOut() {
-    localStorage.removeItem('username');
-    window.location.href = 'login.html';
-  }
-</script>
-
+        setTimeout(() => {
+          localStorage.setItem("username", properCasedName);
+          message.textContent = "Redirecting to dashboard...";
+          setTimeout(() => {
+            window.location.href = "main.html";
+          }, 1000);
+        }, 1500);
+      } else {
+        message.textContent = "ACCESS DENIED: Invalid credentials or unapproved user.";
+        message.classList.add("error");
+      }
+    }
+  </script>
 </body>
 </html>
